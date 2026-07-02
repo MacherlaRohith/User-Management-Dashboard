@@ -1,0 +1,35 @@
+/* FilterPopup component styles */
+
+.filterTrigger {
+  position: relative;
+}
+
+.badge {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  min-width: 18px;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  font-weight: 700;
+  color: #fff;
+  background: var(--color-accent);
+  border-radius: var(--radius-full);
+  padding: 0 4px;
+}
+
+.filterForm {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.filterActions {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--space-3);
+  margin-top: var(--space-2);
+}

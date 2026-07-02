@@ -1,0 +1,111 @@
+/* Toast notification styles */
+
+.toastContainer {
+  position: fixed;
+  top: var(--space-6);
+  right: var(--space-6);
+  z-index: var(--z-toast);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  pointer-events: none;
+  max-width: 400px;
+}
+
+.toast {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  padding: var(--space-4);
+  background: var(--color-bg-card);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  backdrop-filter: var(--glass-blur);
+  pointer-events: auto;
+  animation: toastSlideIn var(--transition-slow);
+  min-width: 300px;
+}
+
+.toast.exiting {
+  animation: toastSlideOut var(--transition-base) forwards;
+}
+
+.icon {
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.content {
+  flex: 1;
+}
+
+.title {
+  font-size: var(--font-size-base);
+  font-weight: 600;
+  margin-bottom: var(--space-1);
+}
+
+.message {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  line-height: 1.4;
+}
+
+.close {
+  flex-shrink: 0;
+  background: none;
+  border: none;
+  color: var(--color-text-muted);
+  padding: var(--space-1);
+  border-radius: var(--radius-sm);
+  transition: color var(--transition-fast);
+}
+.close:hover {
+  color: var(--color-text-primary);
+}
+
+/* Variant colors */
+.success .icon { color: var(--color-success); }
+.success { border-left: 3px solid var(--color-success); }
+
+.error .icon { color: var(--color-error); }
+.error { border-left: 3px solid var(--color-error); }
+
+.warning .icon { color: var(--color-warning); }
+.warning { border-left: 3px solid var(--color-warning); }
+
+.info .icon { color: var(--color-info); }
+.info { border-left: 3px solid var(--color-info); }
+
+/* Progress bar for auto-dismiss */
+.progressBar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 3px;
+  border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+  animation: shrink linear forwards;
+}
+
+.success .progressBar { background: var(--color-success); }
+.error .progressBar   { background: var(--color-error); }
+.warning .progressBar { background: var(--color-warning); }
+.info .progressBar    { background: var(--color-info); }
+
+@keyframes shrink {
+  from { width: 100%; }
+  to   { width: 0; }
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .toastContainer {
+    left: var(--space-4);
+    right: var(--space-4);
+    max-width: none;
+  }
+  .toast {
+    min-width: auto;
+  }
+}

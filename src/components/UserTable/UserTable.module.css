@@ -1,0 +1,84 @@
+/* UserTable component styles */
+
+.tableWrapper {
+  width: 100%;
+  overflow-x: auto;
+  background: var(--color-bg-card);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  backdrop-filter: var(--glass-blur);
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  white-space: nowrap;
+}
+
+.th {
+  padding: var(--space-4);
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  color: var(--color-text-secondary);
+  border-bottom: 1px solid var(--color-border);
+  background: rgba(0, 0, 0, 0.2);
+  user-select: none;
+}
+
+.sortable {
+  cursor: pointer;
+  transition: color var(--transition-fast);
+}
+
+.sortable:hover {
+  color: var(--color-text-primary);
+}
+
+.thContent {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.sortIcon {
+  color: var(--color-accent);
+}
+
+.sortIcon.invisible {
+  visibility: hidden;
+}
+
+.tr {
+  border-bottom: 1px solid var(--color-border);
+  transition: background var(--transition-fast);
+}
+
+.tr:last-child {
+  border-bottom: none;
+}
+
+.tr:hover {
+  background: var(--color-bg-card-hover);
+}
+
+.td {
+  padding: var(--space-4);
+  font-size: var(--font-size-base);
+  color: var(--color-text-primary);
+}
+
+.tdActions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: var(--space-2);
+}
+
+/* Empty state / Loading state */
+.emptyState {
+  padding: var(--space-10) var(--space-4);
+  text-align: center;
+  color: var(--color-text-muted);
+}

@@ -1,0 +1,33 @@
+/* Spinner component styles */
+
+.spinnerWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-8);
+}
+
+.spinner {
+  border: 3px solid var(--color-border);
+  border-top-color: var(--color-accent);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+/* Size variants */
+.small {
+  width: 20px;
+  height: 20px;
+  border-width: 2px;
+}
+
+.medium {
+  width: 36px;
+  height: 36px;
+}
+
+.large {
+  width: 48px;
+  height: 48px;
+  border-width: 4px;
+}
