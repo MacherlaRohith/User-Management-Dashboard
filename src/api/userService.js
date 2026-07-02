@@ -37,20 +37,29 @@ export function createUser(userData) {
 
 /**
  * Update an existing user by ID.
+ * JSONPlaceholder simulates success for IDs 1-10. For newly added users (ID > 10),
+ * we mock the success response to prevent 500 errors.
  * @param {number} id
  * @param {Object} userData
  * @returns {Promise<import('axios').AxiosResponse>}
  */
 export function updateUser(id, userData) {
+  if (id > 10) {
+    return Promise.resolve({ data: { id, ...userData }, status: 200 });
+  }
   return api.put(`/users/${id}`, userData);
 }
 
 /**
  * Delete a user by ID.
- * JSONPlaceholder simulates success (returns 200).
+ * JSONPlaceholder simulates success for IDs 1-10. For newly added users (ID > 10),
+ * we mock the success response to prevent 500 errors.
  * @param {number} id
  * @returns {Promise<import('axios').AxiosResponse>}
  */
 export function deleteUser(id) {
+  if (id > 10) {
+    return Promise.resolve({ status: 200 });
+  }
   return api.delete(`/users/${id}`);
 }
