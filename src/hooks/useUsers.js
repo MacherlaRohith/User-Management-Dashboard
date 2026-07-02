@@ -8,7 +8,7 @@
 
 import { useState, useEffect, useCallback } from 'react';
 import * as userService from '../api/userService';
-import { normalizeUser, formatUserForApi, generateId } from '../utils/helpers';
+import { normalizeUser, formatUserForApi } from '../utils/helpers';
 
 export default function useUsers() {
   const [users, setUsers] = useState([]);
@@ -40,17 +40,20 @@ export default function useUsers() {
     // Fire the real API call for demonstration
     const response = await userService.createUser(apiPayload);
 
-    // Optimistically add to local state with a unique client-side ID
-    const newUser = {
-      id: generateId(),
-      firstName: formData.firstName.trim(),
-      lastName: formData.lastName.trim(),
-      email: formData.email.trim(),
-      department: formData.department.trim(),
-    };
+    setUsers((prev) => {
+      // Calculate the next sequential ID safely using latest state
+      const nextId = prev.length > 0 ? Math.max(...prev.map((u) => u.id)) + 1 : 1;
+      
+      const newUser = {
+        id: nextId,
+        firstName: formData.firstName.trim(),
+        lastName: formData.lastName.trim(),
+        email: formData.email.trim(),
+        department: formData.department.trim(),
+      };
 
-    setUsers((prev) => [newUser, ...prev]);
-    return { ...newUser, apiId: response.data.id };
+      return [newUser, ...prev];
+    });
   }, []);
 
   // ---- Update an existing user ----

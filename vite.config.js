@@ -4,6 +4,7 @@ import react from '@vitejs/plugin-react'
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react()],
+  base: '/User-Management-Dashboard/',
   test: {
     environment: 'jsdom',
     globals: true,
