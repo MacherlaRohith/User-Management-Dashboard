@@ -59,5 +59,6 @@ Given more time, I would implement the following enhancements:
 
 ---
 
-## 🌐 Deployment Link
-*Insert your live deployment link here once deployed (e.g., Vercel, Netlify).*
+## 🌐 Deployment & Repository Links
+- **Live Deployment**: [https://MacherlaRohith.github.io/User-Management-Dashboard/](https://MacherlaRohith.github.io/User-Management-Dashboard/)
+- **GitHub Repository**: [https://github.com/MacherlaRohith/User-Management-Dashboard](https://github.com/MacherlaRohith/User-Management-Dashboard)
